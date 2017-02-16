@@ -1,0 +1,9 @@
+認識方法　サーバーのwww ディレクトリに　phpファイルがあると　
+	ユーザがそのディレクトリを　ブラウザーで訪問すると　ブラウザにデータを返す
+
+開発ノート
+01 view_users.php  > 登録ユーザを表示  DB接続 クエリを書いて 
+02 register.php > 
+03 register.php > 登録画面　ノーマル
+04 view_users.php > ユーザー一覧
+05 edit_users.php > ユーザーを編集
