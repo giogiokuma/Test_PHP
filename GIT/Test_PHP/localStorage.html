@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+div#wrapper{
+    width:300px;
+    margin:0 auto;
+   padding-top:30px;
+}
+
+td{padding-bottom:10px}
+
+p#read_title{
+    padding-bottom:5px;
+    margin-bottom:5px;
+    border-bottom:1px solid #ccc;
+}
+
+p#result{
+    padding-bottom:20px;
+}
+div#detail{
+    margin-top:20px;
+    border-top:4px #000 solid;
+    font-size:12px;
+    line-height:1.5;
+    padding:10px;
+}
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+    <table>
+        <tr><td>title : </td><td><input id="title" type="text" name="title" placeholder="タイトルを入れてください" /></td></tr>  
+<tr><td>honbun : </td><td><textarea id="honbun" name="honbun" placeholder="内容を入れてください" ></textarea></td></tr> 
+        <tr><td><input type="button" id="save" value="保存する"></td>
+            <td><input type="button" id="read" value="読み出す" /></td>
+            <td><input type="button" id="delete" value="保存データを削除する" /></td>
+        </tr>        
+    </table>
+    <p id="result">保存されたかどうか</p>
+    <p id="read_title">タイトル</p>
+    <p id="read_honbun">本文</p>
+    </div>
+<div id="detail"><p>入力エリアに入力して保存ボタンを押した後に読み出すボタンをクリックすると、下に保存したデータが
+表示される。</p>
+<p>保存データを削除ボタンをクリックした後に読み出すボタンをクリックしてもデータがlocalStorageに残っていないので「データを入力してください」と表示される。</p></div>
+<script src="./js/localStorage.js"></script>
+</body>
+</html>

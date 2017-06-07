@@ -1,3 +1,38 @@
+20170515 
+
+05 posting.php
+
+ handle_form.php
+ 
+ // load viewer library
+$libraryPath = 'cmsAdmin/lib/viewer_functions.php';
+$dirsToCheck = array('C:/wamp/www/','','../','../../','../../../');
+foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
+if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
+
+
+if(@isset($_REQUEST['submit_count'])){
+$count = $_REQUEST['submit_count'] + 1;
+}else{
+$count = 0;
+}
+
+?>
+
+<form action="" method="post">
+<input name="submit_count" type="hidden" value="<?php echo $count; ?>" />
+<input type="submit" name="submit1" value="submitted" />
+</form>
+
+<p>You have submitted this form: <?php echo $count; ?> times!</p>
+
+
+
+$_SESSION['codefield_name'] = md5(uniqid('auth', true));
+
+
+--------
+
 認識方法　サーバーのwww ディレクトリに　phpファイルがあると　
 	ユーザがそのディレクトリを　ブラウザーで訪問すると　ブラウザにデータを返す
 
@@ -7,3 +42,240 @@
 03 register.php > 登録画面　ノーマル
 04 view_users.php > ユーザー一覧
 05 edit_users.php > ユーザーを編集
+06 view_users.php > ユーザー一覧　
+07 handle_post.php  ch05 posting => Thank you と返す
+08 handle_post.php  ch05 posting => str_word_count() functionで
+09 handle_post.php  ch05-7 posting =>  str_word_count() functionを足す、 str_ireplace() functionを足す
+10 soup1.php  > print_r(変数)　 soup3.php > $soups array   soup3 > $soups array
+11 books.php > 
+12 sort.php  > $grades 変数に  array('i' => 'p')　key value を格納 -> for ($values as $i => $value)
+13 list.php > explode(' ', $_POST['words'])（文字列をarrayに変換) 　　   implode('<br />', $words_array); array を文字列に変換
+
+14 list.html > インターフェース
+15 evet.html > テキストボックスに入力した値、チェックしたデータをsend->response　
+   event.php
+16 template/header.html  > 
+template/footer.html
+
+17 login.php > ログインフォーム
+18 index.php > 
+19 register.php > 登録画面
+20 9-1 customize.php > 
+21 9-7 welcome.php > 
+22 9-2 view_settings.php > 
+23 10 menu.php > 
+24 11 add_quote.php > 
+25 11 view_quote.php > ファイルのデータを読む　file()   カウント関数 count()  ランダム数をつくる rand(0, ($n - 1))  => ブラウザで表示
+26 11 register.php > 
+27 11 list_dir.php > ディレクトリを出力
+28 11 register.pho > 登録画面
+29 11 簡単ログインシステム
+30 12 create_table.php > 
+31 12 add_quote.php > 
+32 03 feedback.html > フォームの例　handle_form.php で処理
+33 03 handle_form.php > 変数に フォームのデータを格納
+
+34 04 calculator.html > 数量　税率　単価　金額　計算　handle_calc.php 
+35 04 handle_calc.php > 
+36 05 posting.html > handle_post.php 登録　post > 処理
+37 05 handle_post.php > nl2br() 関数　改行文字の前にHTMLの改行タグを入れる
+38 05-4 handle.php > 
+39 06-1 register.html > フォーム メールアドレスなどを登録 submit ボタンを押すと　フォームに入力した値をサーバーに渡す
+40 06-2 ch6 登録フォーム
+41 07-1 soups1.php  > 連想配列
+42 07-2 soups2.php > すでにある配列 $soups[] に　key, value ペアを追加
+43 07-3 soups3.php > foreach($arr as $key=>$value) { でプリント }
+44 07-4 books.php > 連想配列をさらに複合に
+45 08-2 header.html > ナビゲーションを含む
+46 08-3 template/footer.html > ナビゲーションを含む
+47 08-4 index.php include でheader.html と footer.html を読み込み
+48 08-5 book.php nabigation + 
+49 08-6 header.html 
+50 08-7 footer.html
+51 08-8 register.php
+52 09-1 customize.php > クッキーを保存
+53 09-2 view_settings.php > クッキーに保存されたstyle を引き出す htmlentities($_COOKIE['font_color']) 	
+54 09-3 reset.php > customize.php のリンク
+55 09-6 login.php > SESSION['email'] でクッキーをチェック
+56 09-7 welcome.php > webpage を表示する　サーバーサイド　で運用
+57 09-8 
+58 11-1 add_quote.php > 
+59 11-2 add_quote.php > quotes.txt を用意しておいて　textarea から入力した文字を quote.txt に書き込む
+60 11-3 view_quote.php > quotes.txt を表示する
+61 11-4 upload_file.php > 
+62 12-2 mysqli_connect.php > データベース接続　
+	@mysqli_connect('mysql420.db.sakura.ne.jp', 'ohatadesign', '1hitsuji', 'ohatadesign_5')
+63 12-3 create_table.php >  テーブルをつくるための php データ
+64 12-4 add_entry.php >j
+65 12-6 view_entries.php > 
+66 12-7 delete_entry.php > 
+67 12-8 edit_entry.php > 
+68 13-1 mysqli_connect.php >   データベース接続
+69 13-2 header.html  templates/header.html
+70 13-3 footer.html  templates/footer.html
+71 13-2 function.php >  
+72 13-4 
+73 13-5 login.php > ログインフォーム  setcookie を含む
+74 13-6 logout.php > ログアウト
+75 13-7 add_quote.php > !is_administrator() がエラーになるので　コメントアウト
+76 13-8 delete_quote.php > 
+77 13-9 edit_quote.php > 
+78 13-10 index.php > 
+79 02-04 quotes.php > ダブルクォート　> 変数が出力できる
+80 02-02 script_02_02.php > 
+81 variables.php > ダブルクォート　> 変数が出力できる
+82 11-1 add_quote.php >   quotes.txt に書き出す
+   $file = '../quotes.txt';  $file にディレクトリを登録　　
+83 12-1 mysqli_connect.php > 
+84 12-3 create_table.php > "entries" テーブルを作成 　> CREATE TABLE で
+85 12-4 add_entry.php  > INSERT INTO で　データを追加
+86 14-1 index.php > date
+87 14-2 news.php > 
+88 06-1 register.php > 
+89 06-6 register_reg.php > 
+90 07-1 soups1.php > 
+91 07-2 soups2.php > 
+92 07-3 soups3.php > foreach($soups as $day => $soup) {  連想配列 array　を出力
+93 07-4 sort.php > asort()  ksort() を　適用
+94 07-5 list.php > explode(' ', $_POST['words']) // スペースで　arrayにして格納
+95 07-6 books.php > 連想配列に　値が複数入る　key = 1  を　異なる変数3つに格納 $books key = 'PHP VQS' => $phpvqs という具合に
+96 07-7 list.php > impload(', ', $tax_array) // $tax_array の中のデータを , で string にもどす 
+97 07-8 event.html > 
+98 08-4 index.php > include()
+99 08-5 books.php
+100 08 login.php > このファイルのみで、ログインできる
+101 08-9 register.php >   ★★★フォーム入力からデータを得る
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

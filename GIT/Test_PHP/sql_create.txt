@@ -1,0 +1,11 @@
+20170509 
+
+CREATE TABLE quotes(
+id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+`quote` varchar(50) NOT NULL,
+`source` varchar(70) NOT NULL,
+`favorite` varchar(70) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=11;
+
+
