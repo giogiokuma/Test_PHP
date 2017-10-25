@@ -1,0 +1,36 @@
+20171025
+ぐんまマラソン　給水所資材リスト
+データ読み込み
+
+---------
+20171025 
+https://qiita.com/kaz2ngt/items/dabbfa2d20a328722ca2
+
+node csv データ読込み　
+
+
+
+'use strict'; 
+
+const fs = require('fs');
+const readline = require('readline'); 
+const rs = fs.ReadStream('./data6.csv');
+const rl = readline.createInterface({ 'input': rs, 'output': {} });
+const map = new Map();
+rl.on('line', (lineString) => {
+    const columns = lineString.split(',');
+    //const date1 = parseInt(columns[0]);
+    const date1 = columns[0];
+    const val = columns[1]; 
+    
+    console.log('[' + date1 + ']' + ' ' + val);
+
+});
+
+
+
+
+-------------
+https://www.amazon.com/Sails-js-Action-Mike-McNeil/dp/1617292613/ref=sr_1_5?s=books&ie=UTF8&qid=1508908864&sr=1-5&keywords=node.js+data
+**Sails.js in Action**
+Sails.js とは　Nodejs を使った　MVC フレームワーク
