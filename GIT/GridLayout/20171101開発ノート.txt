@@ -1,0 +1,117 @@
+
+** Grid Layout 開発 ノート** 
+https://gridbyexample.com/examples/
+
+
+CSS Trick
+https://css-tricks.com/introduction-fr-css-unit/
+
+a. 
+<div class="grid">
+  <div class="column"></div>
+  <div class="column"></div>
+  <div class="column"></div>
+  <div class="column"></div>
+</div>
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25%); 
+  grid-column-gap: 10px;
+}
+
+----------
+b. 
+
+style002.css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, calc(100% / 4))
+  ...
+}
+
+----------
+**fr = fraction 単位 CSS =>  % px em **   
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+}
+
+
+----------
+
+MDN
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+
+**CSS グリッドレイアウト**
+
+----------
+c. 
+index003.html
+<div class="wrapper">
+   <div>One</div>
+   <div>Two</div>
+   <div>Three</div>
+   <div>Four</div>
+   <div>Five</div>
+</div>
+
+style003.css
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+--------------------------------------------------
+20171107
+https://qiita.com/kura07/items/e633b35e33e43240d363
+GridLayout 
+
+d. 004.html 
+<div style="display:grid;"><!--コンテナ-->
+  <div></div><!--アイテム-->
+  <p></p><!--アイテム-->
+  <section>
+    <div></div><!--アイテムではない-->
+  </section>
+</div>
+
+**その他構成物**
+* ライン
+グリッドを分ける垂直および水平の線のこと
+
+
+* トラック
+グリッドの行および列のこと。
+
+* セル
+隣接する垂直および水平方向のラインがつくるアイテムを配置できる最小の単位
+
+* エリア
+１つあるいは複数のセルが結合してできるセルの集まり
+
+--------
+ステップ1 HTML 　と　　必須のCSS を記述
+まずはHTMLを記述。
+- コンテナ（=グリッド全体を表す要素）
+- アイテム（=グリッドのエリアに配置する要素）
+*index.html
+<div id="container"> <!-- コンテナ -->
+    <div id="itemA">A</div> <!-- アイテム -->
+    <div id="itemB">B</div> <!-- アイテム -->
+    <div id="itemC">C</div> <!-- アイテム -->
+</div>
+
+*main.css
+#container {
+    display: grid; /* グリッドレイアウト */
+}
+
+---
+ステップ2 CSS で各トラックの大きさを指定
+コンテナのスタイルとして記述
+- grid-template-rows: 行のトラックの高さを半角スペースで区切る
+- grid-template-columns:　列のトラックの幅を半角スペースで区切って指定
+
